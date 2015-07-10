@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<addon addon_id="Cake_BbCode" title="Cake\BbCode" version_string="1.0.0 Alpha 1" version_id="1000030" url="https://forumcake.com/" install_callback_class="Cake\BbCode\Install_Controller" install_callback_method="install" uninstall_callback_class="Cake\BbCode\Install_Controller" uninstall_callback_method="uninstall">
+  <admin_navigation/>
+  <admin_permissions/>
+  <admin_style_properties/>
+  <admin_templates/>
+  <admin_template_modifications/>
+  <code_events/>
+  <code_event_listeners/>
+  <cron/>
+  <email_templates/>
+  <email_template_modifications/>
+  <optiongroups>
+    <option option_id="cake_bbCode_modules" edit_format="callback" data_type="array" can_backup="1">
+      <default_value>a:5:{s:12:"CustomInsert";i:1;s:9:"Footnotes";i:1;s:10:"Formatting";i:1;s:7:"MathJax";i:1;s:9:"SubAndSup";i:1;}</default_value>
+      <edit_format_params>Cake\Option_Explain::render</edit_format_params>
+      <sub_options>*</sub_options>
+      <relation group_id="cake" display_order="1"/>
+    </option>
+  </optiongroups>
+  <permissions>
+    <permission_groups/>
+    <permissions/>
+    <interface_groups/>
+  </permissions>
+  <phrases>
+    <phrase title="cake_bbCode" version_id="1000030" version_string="1.0.0 Alpha 1"><![CDATA[BB Code]]></phrase>
+    <phrase title="cake_bbCode_customInsert" version_id="1000030" version_string="1.0.0 Alpha 1"><![CDATA[Custom Insert]]></phrase>
+    <phrase title="cake_bbCode_customInsert_desc" version_id="1000030" version_string="1.0.0 Alpha 1"><![CDATA[Allows custom BB codes to be added to the 'Insert' dropdown menu.]]></phrase>
+    <phrase title="cake_bbCode_footnotes" version_id="1000030" version_string="1.0.0 Alpha 1"><![CDATA[Footnotes]]></phrase>
+    <phrase title="cake_bbCode_footnotes_desc" version_id="1000030" version_string="1.0.0 Alpha 1"><![CDATA[Adds [footnote] BB code.]]></phrase>
+    <phrase title="cake_bbCode_formatting" version_id="1000030" version_string="1.0.0 Alpha 1"><![CDATA[Formatting]]></phrase>
+    <phrase title="cake_bbCode_formatting_desc" version_id="1000030" version_string="1.0.0 Alpha 1"><![CDATA[Adds a 'Formatting' dropdown to the WYSIWYG editor.]]></phrase>
+    <phrase title="cake_bbCode_mathJax" version_id="1000030" version_string="1.0.0 Alpha 1"><![CDATA[MathJax]]></phrase>
+    <phrase title="cake_bbCode_mathJax_desc" version_id="1000030" version_string="1.0.0 Alpha 1"><![CDATA[Adds [latex], [asciimath] and [math] BB codes.]]></phrase>
+    <phrase title="cake_bbCode_subAndSup" version_id="1000030" version_string="1.0.0 Alpha 1"><![CDATA[Subscript and Superscript]]></phrase>
+    <phrase title="cake_bbCode_subAndSup_desc" version_id="1000030" version_string="1.0.0 Alpha 1"><![CDATA[Adds [sub] and [sup] BB codes.]]></phrase>
+    <phrase title="cake_bb_code" version_id="1000030" version_string="1.0.0 Alpha 1"><![CDATA[BB Code]]></phrase>
+    <phrase title="option_cake_bbCode_modules" version_id="1000030" version_string="1.0.0 Alpha 1"><![CDATA[Enabled Modules]]></phrase>
+    <phrase title="option_cake_bbCode_modules_explain" version_id="1000030" version_string="1.0.0 Alpha 1"><![CDATA[This option can't be edited manually. It is edited only via the <a href="admin.php?add-ons/Cake_BbCode/modules">Modules</a> page.]]></phrase>
+  </phrases>
+  <route_prefixes/>
+  <style_properties/>
+  <templates/>
+  <public_template_modifications/>
+  <bb_code_media_sites/>
+  <bb_codes/>
+</addon>
