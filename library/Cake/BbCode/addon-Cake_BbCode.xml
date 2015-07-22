@@ -1,12 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<addon addon_id="Cake_BbCode" title="Cake\BbCode" version_string="1.0.0 Alpha 2" version_id="1000031" url="https://forumcake.com/" install_callback_class="Cake\BbCode\Install_Controller" install_callback_method="install" uninstall_callback_class="Cake\BbCode\Install_Controller" uninstall_callback_method="uninstall">
+<addon addon_id="Cake_BbCode" title="Cake\BbCode" version_string="1.0.0 Alpha 3" version_id="1000032" url="https://forumcake.com/" install_callback_class="Cake\BbCode\Install_Controller" install_callback_method="install" uninstall_callback_class="Cake\BbCode\Install_Controller" uninstall_callback_method="uninstall">
   <admin_navigation/>
   <admin_permissions/>
   <admin_style_properties/>
   <admin_templates/>
-  <admin_template_modifications/>
+  <admin_template_modifications>
+    <modification template="bb_code_edit" modification_key="cake_bbCode_bbCodeEdit" description="" execution_order="10" enabled="1" action="preg_replace">
+      <find><![CDATA[#<xen:option value="replace">{xen:phrase simple_replacement}</xen:option>\s*<xen:option value="callback">{xen:phrase php_callback}</xen:option>(\s*</xen:radiounit>)#Us]]></find>
+      <replace><![CDATA[<xen:option value="replace" displayif="{$debugMode} || {$bbCode.bb_code_mode} == 'replace' || {$bbCode.allow_replacement_mode_edit_cake}">{xen:phrase simple_replacement}</xen:option>
+<xen:option value="callback" displayif="{$debugMode} || {$bbCode.bb_code_mode} == 'callback' || {$bbCode.allow_replacement_mode_edit_cake}">{xen:phrase php_callback}</xen:option>
+${1}
+<xen:if is="{$debugMode}">
+	<xen:checkboxunit label="">
+		<xen:option name="allow_replacement_mode_edit_cake" value="1" selected="{$bbCode.allow_replacement_mode_edit_cake}" hint="{xen:phrase cake_if_unchecked_only_possible_change_replacement_mode_debug_mode}">{xen:phrase cake_allow_replacement_mode_edit}</xen:option>
+	</xen:checkboxunit>
+</xen:if>]]></replace>
+    </modification>
+  </admin_template_modifications>
   <code_events/>
-  <code_event_listeners/>
+  <code_event_listeners>
+    <listener event_id="load_class_controller" execute_order="10" callback_class="Cake\BbCode\Proxy" callback_method="loadClass" active="1" hint="XenForo_ControllerAdmin_BbCode" description=""/>
+    <listener event_id="load_class_datawriter" execute_order="10" callback_class="Cake\BbCode\Proxy" callback_method="loadClass" active="1" hint="XenForo_DataWriter_BbCode" description=""/>
+    <listener event_id="load_class_model" execute_order="10" callback_class="Cake\BbCode\Proxy" callback_method="loadClass" active="1" hint="XenForo_Model_BbCode" description=""/>
+  </code_event_listeners>
   <cron/>
   <email_templates/>
   <email_template_modifications/>
@@ -24,6 +40,7 @@
     <interface_groups/>
   </permissions>
   <phrases>
+    <phrase title="cake_allow_replacement_mode_edit" version_id="1000032" version_string="1.0.0 Alpha 3"><![CDATA[Allow replacement mode edit]]></phrase>
     <phrase title="cake_bbCode" version_id="1000030" version_string="1.0.0 Alpha 1"><![CDATA[BB Code]]></phrase>
     <phrase title="cake_bbCode_customInsert" version_id="1000030" version_string="1.0.0 Alpha 1"><![CDATA[Custom Insert]]></phrase>
     <phrase title="cake_bbCode_customInsert_desc" version_id="1000030" version_string="1.0.0 Alpha 1"><![CDATA[Allows custom BB codes to be added to the 'Insert' dropdown menu.]]></phrase>
@@ -36,8 +53,7 @@
     <phrase title="cake_bbCode_subAndSup" version_id="1000030" version_string="1.0.0 Alpha 1"><![CDATA[Subscript and Superscript]]></phrase>
     <phrase title="cake_bbCode_subAndSup_desc" version_id="1000030" version_string="1.0.0 Alpha 1"><![CDATA[Adds [sub] and [sup] BB codes.]]></phrase>
     <phrase title="cake_bb_code" version_id="1000030" version_string="1.0.0 Alpha 1"><![CDATA[BB Code]]></phrase>
-    <phrase title="option_cake_bbCode_modules" version_id="1000030" version_string="1.0.0 Alpha 1"><![CDATA[Enabled Modules]]></phrase>
-    <phrase title="option_cake_bbCode_modules_explain" version_id="1000030" version_string="1.0.0 Alpha 1"><![CDATA[This option can't be edited manually. It is edited only via the <a href="admin.php?add-ons/Cake_BbCode/modules">Modules</a> page.]]></phrase>
+    <phrase title="cake_if_unchecked_only_possible_change_replacement_mode_debug_mode" version_id="1000032" version_string="1.0.0 Alpha 3"><![CDATA[If unchecked, it will only be possible to change the replacement mode of this BB code if debug mode is enabled.]]></phrase>
   </phrases>
   <route_prefixes/>
   <style_properties/>
