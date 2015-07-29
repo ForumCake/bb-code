@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<addon addon_id="Cake_BbCode" title="Cake\BbCode" version_string="1.0.0 Alpha 4" version_id="1000033" url="https://forumcake.com/" install_callback_class="Cake\BbCode\Install_Controller" install_callback_method="install" uninstall_callback_class="Cake\BbCode\Install_Controller" uninstall_callback_method="uninstall">
+<addon addon_id="Cake_BbCode" title="Cake\BbCode" version_string="1.0.0 Alpha 5" version_id="1000034" url="https://forumcake.com/" install_callback_class="Cake\BbCode\Install_Controller" install_callback_method="install" uninstall_callback_class="Cake\BbCode\Install_Controller" uninstall_callback_method="uninstall">
   <admin_navigation/>
   <admin_permissions/>
   <admin_style_properties/>
@@ -54,6 +54,8 @@ ${1}
     <phrase title="cake_bbCode_mathJax_desc" version_id="1000030" version_string="1.0.0 Alpha 1"><![CDATA[Adds [latex], [asciimath] and [math] BB codes.]]></phrase>
     <phrase title="cake_bbCode_subAndSup" version_id="1000030" version_string="1.0.0 Alpha 1"><![CDATA[Subscript and Superscript]]></phrase>
     <phrase title="cake_bbCode_subAndSup_desc" version_id="1000030" version_string="1.0.0 Alpha 1"><![CDATA[Adds [sub] and [sup] BB codes.]]></phrase>
+    <phrase title="cake_bbCode_table" version_id="1000034" version_string="1.0.0 Alpha 5"><![CDATA[Table]]></phrase>
+    <phrase title="cake_bbCode_table_desc" version_id="1000034" version_string="1.0.0 Alpha 5"><![CDATA[Adds [table] BB code.]]></phrase>
     <phrase title="cake_bb_code" version_id="1000030" version_string="1.0.0 Alpha 1"><![CDATA[BB Code]]></phrase>
     <phrase title="cake_if_unchecked_only_possible_change_replacement_mode_debug_mode" version_id="1000032" version_string="1.0.0 Alpha 3"><![CDATA[If unchecked, it will only be possible to change the replacement mode of this BB code if debug mode is enabled.]]></phrase>
   </phrases>
