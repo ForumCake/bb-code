@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<addon addon_id="Cake_BbCode" title="Cake\BbCode" version_string="1.0.0 Alpha 3" version_id="1000032" url="https://forumcake.com/" install_callback_class="Cake\BbCode\Install_Controller" install_callback_method="install" uninstall_callback_class="Cake\BbCode\Install_Controller" uninstall_callback_method="uninstall">
+<addon addon_id="Cake_BbCode" title="Cake\BbCode" version_string="1.0.0 Alpha 4" version_id="1000033" url="https://forumcake.com/" install_callback_class="Cake\BbCode\Install_Controller" install_callback_method="install" uninstall_callback_class="Cake\BbCode\Install_Controller" uninstall_callback_method="uninstall">
   <admin_navigation/>
   <admin_permissions/>
   <admin_style_properties/>
@@ -28,7 +28,7 @@ ${1}
   <email_template_modifications/>
   <optiongroups>
     <option option_id="cake_bbCode_modules" edit_format="callback" data_type="array" can_backup="1">
-      <default_value>a:5:{s:12:"CustomInsert";i:1;s:9:"Footnotes";i:1;s:10:"Formatting";i:1;s:7:"MathJax";i:1;s:9:"SubAndSup";i:1;}</default_value>
+      <default_value>a:6:{s:14:"CiteAndMention";i:1;s:12:"CustomInsert";i:1;s:9:"Footnotes";i:1;s:10:"Formatting";i:1;s:7:"MathJax";i:1;s:9:"SubAndSup";i:1;}</default_value>
       <edit_format_params>Cake\Option_Explain::render</edit_format_params>
       <sub_options>*</sub_options>
       <relation group_id="cake" display_order="1"/>
@@ -42,6 +42,8 @@ ${1}
   <phrases>
     <phrase title="cake_allow_replacement_mode_edit" version_id="1000032" version_string="1.0.0 Alpha 3"><![CDATA[Allow replacement mode edit]]></phrase>
     <phrase title="cake_bbCode" version_id="1000030" version_string="1.0.0 Alpha 1"><![CDATA[BB Code]]></phrase>
+    <phrase title="cake_bbCode_citeAndMention" version_id="1000033" version_string="1.0.0 Alpha 4"><![CDATA[Cite and Mention]]></phrase>
+    <phrase title="cake_bbCode_citeAndMention_desc" version_id="1000033" version_string="1.0.0 Alpha 4"><![CDATA[Adds [cite] and [mention] BB codes.]]></phrase>
     <phrase title="cake_bbCode_customInsert" version_id="1000030" version_string="1.0.0 Alpha 1"><![CDATA[Custom Insert]]></phrase>
     <phrase title="cake_bbCode_customInsert_desc" version_id="1000030" version_string="1.0.0 Alpha 1"><![CDATA[Allows custom BB codes to be added to the 'Insert' dropdown menu.]]></phrase>
     <phrase title="cake_bbCode_footnotes" version_id="1000030" version_string="1.0.0 Alpha 1"><![CDATA[Footnotes]]></phrase>
