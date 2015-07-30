@@ -24,7 +24,9 @@ class XenForo_Model_BbCode extends XFCP_XenForo_Model_BbCode
     {
         $bbCodeNode = parent::_getBbCodeXmlNode($document, $bbCode);
 
-        $bbCodeNode->setAttribute('allow_replacement_mode_edit_cake', $bbCode['allow_replacement_mode_edit_cake']);
+        if (!$bbCode['allow_replacement_mode_edit_cake']) {
+            $bbCodeNode->setAttribute('allow_replacement_mode_edit_cake', $bbCode['allow_replacement_mode_edit_cake']);
+        }
 
         return $bbCodeNode;
     }

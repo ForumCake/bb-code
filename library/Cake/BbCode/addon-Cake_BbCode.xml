@@ -28,7 +28,7 @@ ${1}
   <email_template_modifications/>
   <optiongroups>
     <option option_id="cake_bbCode_modules" edit_format="callback" data_type="array" can_backup="1">
-      <default_value>a:6:{s:14:"CiteAndMention";i:1;s:12:"CustomInsert";i:1;s:9:"Footnotes";i:1;s:10:"Formatting";i:1;s:7:"MathJax";i:1;s:9:"SubAndSup";i:1;}</default_value>
+      <default_value>a:7:{s:14:"CiteAndMention";i:1;s:12:"CustomInsert";i:1;s:9:"Footnotes";i:1;s:10:"Formatting";i:1;s:7:"MathJax";i:1;s:9:"SubAndSup";i:1;s:5:"Table";i:1;}</default_value>
       <edit_format_params>Cake\Option_Explain::render</edit_format_params>
       <sub_options>*</sub_options>
       <relation group_id="cake" display_order="1"/>
