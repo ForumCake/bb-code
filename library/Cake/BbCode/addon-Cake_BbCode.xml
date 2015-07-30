@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<addon addon_id="Cake_BbCode" title="Cake\BbCode" version_string="1.0.0 Alpha 5" version_id="1000034" url="https://forumcake.com/" install_callback_class="Cake\BbCode\Install_Controller" install_callback_method="install" uninstall_callback_class="Cake\BbCode\Install_Controller" uninstall_callback_method="uninstall">
+<addon addon_id="Cake_BbCode" title="Cake\BbCode" version_string="1.0.0 Alpha 6" version_id="1000035" url="https://forumcake.com/" install_callback_class="Cake\BbCode\Install_Controller" install_callback_method="install" uninstall_callback_class="Cake\BbCode\Install_Controller" uninstall_callback_method="uninstall">
   <admin_navigation/>
   <admin_permissions/>
   <admin_style_properties/>
