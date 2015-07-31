@@ -15,7 +15,11 @@ class XenForo_Model_BbCode extends XFCP_XenForo_Model_BbCode
     {
         $bbCodeData = parent::_getBbCodeDataFromXml($xmlBbCode);
 
-        $bbCodeData['allow_replacement_mode_edit_cake'] = (integer) $xmlBbCode['allow_replacement_mode_edit_cake'];
+        if (isset($xmlBbCode['allow_replacement_mode_edit_cake'])) {
+            $bbCodeData['allow_replacement_mode_edit_cake'] = (integer) $xmlBbCode['allow_replacement_mode_edit_cake'];
+        } else {
+            $bbCodeData['allow_replacement_mode_edit_cake'] = 1;
+        }
 
         return $bbCodeData;
     }
