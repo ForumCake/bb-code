@@ -14,6 +14,8 @@ class Install_FileHealthCheck extends \Cake\Install_FileHealthCheckBase
         	'library/Cake/BbCode/Proxy/XenForo/DataWriter/BbCode.php' => '5c5976919665aac0b026c1ab1206d25d',
         	'library/Cake/BbCode/Proxy/XenForo/Model/BbCode.php' => '8a23924045e47497c9a3f129fa84161a',
         	'library/Cake/BbCode/Proxy.php' => '05b784e46e338b7a20485a383119b57f',
+        	'js/cake/bbcode/index.html' => 'd41d8cd98f00b204e9800998ecf8427e',
+        	'styles/default/cake/bbcode/index.html' => 'd41d8cd98f00b204e9800998ecf8427e',
         );
     }
 }
