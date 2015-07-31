@@ -7,6 +7,7 @@ class Install_FileHealthCheck extends \Cake\Install_FileHealthCheckBase
     public function getFileHashes()
     {
         return array(
+        	'library/Cake/BbCode/addon-Cake_BbCode.xml' => '38fddcc1f0981277691fafaa23e87827',
         	'library/Cake/BbCode/BbCode.php' => 'abff4027bb85d3bba0c6b7f082eca4df',
         	'library/Cake/BbCode/Install/Controller.php' => '9cc17c42e7e6ee05587100060c907470',
         	'library/Cake/BbCode/Install/Data.php' => '0716d959efba6a6538b30af72efec392',
