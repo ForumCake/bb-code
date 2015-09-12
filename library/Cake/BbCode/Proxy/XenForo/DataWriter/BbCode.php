@@ -19,6 +19,10 @@ class XenForo_DataWriter_BbCode extends XFCP_XenForo_DataWriter_BbCode
             'type' => self::TYPE_BOOLEAN,
             'default' => 1
         );
+        $fields['xf_bb_code']['snippet_strip_cake'] = array(
+            'type' => self::TYPE_BOOLEAN,
+            'default' => 0
+        );
 
         return $fields;
     }
@@ -30,6 +34,7 @@ class XenForo_DataWriter_BbCode extends XFCP_XenForo_DataWriter_BbCode
         $cakeInput = \Cake\Helper_DataWriter::getInput('XenForo_ControllerAdmin_BbCode');
         if ($cakeInput) {
             \Cake\Helper_DataWriter::setIfShown($this, $cakeInput, 'allow_replacement_mode_edit_cake');
+            \Cake\Helper_DataWriter::setIfShown($this, $cakeInput, 'snippet_strip_cake');
         }
     }
 }

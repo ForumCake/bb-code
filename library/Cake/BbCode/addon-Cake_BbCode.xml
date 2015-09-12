@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<addon addon_id="Cake_BbCode" title="Cake BB Code" version_string="1.0.0 Beta 1" version_id="1000037" url="https://forumcake.com/" install_callback_class="Cake\BbCode\Install_Controller" install_callback_method="install" uninstall_callback_class="Cake\BbCode\Install_Controller" uninstall_callback_method="uninstall">
+<addon addon_id="Cake_BbCode" title="Cake BB Code" version_string="1.0.0 Beta 2" version_id="1000051" url="https://forumcake.com/" install_callback_class="Cake\BbCode\Install_Controller" install_callback_method="install" uninstall_callback_class="Cake\BbCode\Install_Controller" uninstall_callback_method="uninstall">
   <admin_navigation/>
   <admin_permissions/>
   <admin_style_properties/>
   <admin_templates/>
   <admin_template_modifications>
     <modification template="bb_code_edit" modification_key="cake_bbCode_bbCodeEdit" description="" execution_order="10" enabled="1" action="preg_replace">
-      <find><![CDATA[#<xen:option value="replace">{xen:phrase simple_replacement}</xen:option>\s*<xen:option value="callback">{xen:phrase php_callback}</xen:option>(\s*</xen:radiounit>)#Us]]></find>
+      <find><![CDATA[#<xen:option value="replace">{xen:phrase simple_replacement}</xen:option>\s*<xen:option value="callback">{xen:phrase php_callback}</xen:option>(\s*</xen:radiounit>)(.*<xen:textboxunit label="{xen:phrase text_replacement}.*</xen:textboxunit>)#Us]]></find>
       <replace><![CDATA[<xen:option value="replace" displayif="{$debugMode} || {$bbCode.bb_code_mode} == 'replace' || {$bbCode.allow_replacement_mode_edit_cake}">{xen:phrase simple_replacement}</xen:option>
 <xen:option value="callback" displayif="{$debugMode} || {$bbCode.bb_code_mode} == 'callback' || {$bbCode.allow_replacement_mode_edit_cake}">{xen:phrase php_callback}</xen:option>
 ${1}
@@ -14,11 +14,16 @@ ${1}
 	<xen:checkboxunit label="">
 		<xen:option name="allow_replacement_mode_edit_cake" value="1" selected="{$bbCode.allow_replacement_mode_edit_cake}" hint="{xen:phrase cake_if_unchecked_only_possible_change_replacement_mode_debug_mode}">{xen:phrase cake_allow_replacement_mode_edit}</xen:option>
 	</xen:checkboxunit>
-</xen:if>]]></replace>
+</xen:if>
+${2}
+<xen:checkboxunit label="">
+	<xen:option name="snippet_strip_cake" value="1" selected="{$bbCode.snippet_strip_cake}" hint="{xen:phrase cake_if_checked_contents_within_tags_not_shown_in_snippets}">{xen:phrase cake_strip_content_in_snippets}</xen:option>
+</xen:checkboxunit>]]></replace>
     </modification>
   </admin_template_modifications>
   <code_events/>
   <code_event_listeners>
+    <listener event_id="init_dependencies" execute_order="10" callback_class="Cake\BbCode\Proxy" callback_method="dependencies" active="1" hint="" description=""/>
     <listener event_id="load_class_controller" execute_order="10" callback_class="Cake\BbCode\Proxy" callback_method="loadClass" active="1" hint="XenForo_ControllerAdmin_BbCode" description=""/>
     <listener event_id="load_class_datawriter" execute_order="10" callback_class="Cake\BbCode\Proxy" callback_method="loadClass" active="1" hint="XenForo_DataWriter_BbCode" description=""/>
     <listener event_id="load_class_model" execute_order="10" callback_class="Cake\BbCode\Proxy" callback_method="loadClass" active="1" hint="XenForo_Model_BbCode" description=""/>
@@ -28,7 +33,7 @@ ${1}
   <email_template_modifications/>
   <optiongroups>
     <option option_id="cake_bbCode_modules" edit_format="callback" data_type="array" can_backup="1">
-      <default_value>a:7:{s:14:"CiteAndMention";i:1;s:12:"CustomInsert";i:1;s:9:"Footnotes";i:1;s:10:"Formatting";i:1;s:7:"MathJax";i:1;s:9:"SubAndSup";i:1;s:5:"Table";i:1;}</default_value>
+      <default_value>a:9:{s:14:"CiteAndMention";i:1;s:12:"CustomInsert";i:1;s:9:"Footnotes";i:1;s:10:"Formatting";i:1;s:11:"LikeOrReply";i:1;s:7:"MathJax";i:1;s:9:"SubAndSup";i:1;s:5:"Table";i:1;s:12:"UserCriteria";i:1;}</default_value>
       <edit_format_params>Cake\Option_Explain::render</edit_format_params>
       <sub_options>*</sub_options>
       <relation group_id="cake" display_order="1"/>
@@ -50,14 +55,20 @@ ${1}
     <phrase title="cake_bbCode_footnotes_desc" version_id="1000030" version_string="1.0.0 Alpha 1"><![CDATA[Adds [footnote] BB code.]]></phrase>
     <phrase title="cake_bbCode_formatting" version_id="1000030" version_string="1.0.0 Alpha 1"><![CDATA[Formatting]]></phrase>
     <phrase title="cake_bbCode_formatting_desc" version_id="1000030" version_string="1.0.0 Alpha 1"><![CDATA[Adds a 'Formatting' dropdown to the WYSIWYG editor.]]></phrase>
+    <phrase title="cake_bbCode_likeOrReply" version_id="1000051" version_string="1.0.0 Beta 2"><![CDATA[Like or Reply]]></phrase>
+    <phrase title="cake_bbCode_likeOrReply_desc" version_id="1000051" version_string="1.0.0 Beta 2"><![CDATA[Hide contents of a BB code until a user has replied or liked.]]></phrase>
     <phrase title="cake_bbCode_mathJax" version_id="1000030" version_string="1.0.0 Alpha 1"><![CDATA[MathJax]]></phrase>
     <phrase title="cake_bbCode_mathJax_desc" version_id="1000030" version_string="1.0.0 Alpha 1"><![CDATA[Adds [latex], [asciimath] and [math] BB codes.]]></phrase>
     <phrase title="cake_bbCode_subAndSup" version_id="1000030" version_string="1.0.0 Alpha 1"><![CDATA[Subscript and Superscript]]></phrase>
     <phrase title="cake_bbCode_subAndSup_desc" version_id="1000030" version_string="1.0.0 Alpha 1"><![CDATA[Adds [sub] and [sup] BB codes.]]></phrase>
     <phrase title="cake_bbCode_table" version_id="1000034" version_string="1.0.0 Alpha 5"><![CDATA[Table]]></phrase>
     <phrase title="cake_bbCode_table_desc" version_id="1000034" version_string="1.0.0 Alpha 5"><![CDATA[Adds [table] BB code.]]></phrase>
+    <phrase title="cake_bbCode_userCriteria" version_id="1000051" version_string="1.0.0 Beta 2"><![CDATA[User Criteria]]></phrase>
+    <phrase title="cake_bbCode_userCriteria_desc" version_id="1000051" version_string="1.0.0 Beta 2"><![CDATA[Make BB codes that are only visible to users matching specified criteria.]]></phrase>
     <phrase title="cake_bb_code" version_id="1000030" version_string="1.0.0 Alpha 1"><![CDATA[BB Code]]></phrase>
+    <phrase title="cake_if_checked_contents_within_tags_not_shown_in_snippets" version_id="1000051" version_string="1.0.0 Beta 2"><![CDATA[If checked, the contents within this BB Code's tags will not be shown in snippets (e.g., in search results).]]></phrase>
     <phrase title="cake_if_unchecked_only_possible_change_replacement_mode_debug_mode" version_id="1000032" version_string="1.0.0 Alpha 3"><![CDATA[If unchecked, it will only be possible to change the replacement mode of this BB code if debug mode is enabled.]]></phrase>
+    <phrase title="cake_strip_content_in_snippets" version_id="1000051" version_string="1.0.0 Beta 2"><![CDATA[Strip content in snippets]]></phrase>
   </phrases>
   <route_prefixes/>
   <style_properties/>

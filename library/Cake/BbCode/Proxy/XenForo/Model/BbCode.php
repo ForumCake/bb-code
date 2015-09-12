@@ -21,6 +21,8 @@ class XenForo_Model_BbCode extends XFCP_XenForo_Model_BbCode
             $bbCodeData['allow_replacement_mode_edit_cake'] = 1;
         }
 
+        $bbCodeData['snippet_strip_cake'] = !empty($xmlBbCode['snippet_strip_cake']);
+
         return $bbCodeData;
     }
 
@@ -30,6 +32,10 @@ class XenForo_Model_BbCode extends XFCP_XenForo_Model_BbCode
 
         if (!$bbCode['allow_replacement_mode_edit_cake']) {
             $bbCodeNode->setAttribute('allow_replacement_mode_edit_cake', $bbCode['allow_replacement_mode_edit_cake']);
+        }
+
+        if ($bbCode['snippet_strip_cake']) {
+            $bbCodeNode->setAttribute('snippet_strip_cake', 1);
         }
 
         return $bbCodeNode;
